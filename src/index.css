@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 655px) {
+    li {
+        font-size: 15px;
+    }
+    .search-bar {
+        display: none;
+    }
+}
