@@ -26,7 +26,7 @@ const WeatherCard = ({ weatherData }) => {
           </h3>
         </div>
       </div>
-      <div className="sm:border-t-0 border-l-2 text-[17px] font-semibold border-gray-500/30 sm:my-0 my-2 py-2 sm:px-10 global">
+      <div className="sm:border-t-0 border-l-2 text-[17px] font-semibold border-gray-500/30 sm:my-0 my-2 py-2 pl-4 sm:px-10 global">
         <ul>
           <li>
             <TiWeatherPartlySunny />

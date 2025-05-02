@@ -46,7 +46,7 @@ const App = () => {
   };
 
   return (
-    <main className=" text-white bg-[#0f0f0f] w-full sm:h-screen p-8">
+    <main className=" text-white bg-[#0f0f0f] w-full h-screen p-8">
       <div className="flex items-center justify-center px-4">
         <form className="w-full max-w-lg" onSubmit={handleSearch}>
           <div className="relative">
