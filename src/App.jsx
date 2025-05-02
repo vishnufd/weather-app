@@ -6,6 +6,7 @@ import CardShimmer from "./shimmerEffect/CardShimmer";
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [isError, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
   const city = import.meta.env.VITE_CITY;
 
@@ -14,17 +15,27 @@ const App = () => {
   }, []);
 
   const fetchWeatherData = async (query) => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${
-        query ? query : city
-      }&appid=${apiKey}&units=metric`
-    );
-    const weatherData = await response.json();
-    if (weatherData.cod === "404") {
+    setLoading(true);
+    setError(false);
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${
+          query && query
+        }&appid=${apiKey}&units=metric`
+      );
+      const weatherData = await response.json();
+      if (weatherData.cod === "404") {
+        setLoading(false);
+        setError(true);
+      } else {
+        setError(false);
+        setWeatherData(weatherData);
+      }
+    } catch (error) {
       setError(true);
-      return;
+    } finally {
+      setLoading(false);
     }
-    setWeatherData(weatherData);
   };
 
   const handleSearch = (e) => {
@@ -48,6 +59,8 @@ const App = () => {
               name="search_city"
               id="search_city"
               placeholder="Search Your Location"
+              aria-label="search city"
+              autoFocus
             />
           </div>
           {isError && (
@@ -58,11 +71,13 @@ const App = () => {
         </form>
       </div>
       <div className="flex items-center justify-center w-full my-16">
-        {weatherData ? (
+        {isLoading ? (
+          <div className="flex flex-col items-center">
+            <CardShimmer />
+          </div>
+        ) : weatherData ? (
           <WeatherCard weatherData={weatherData} />
-        ) : (
-          <CardShimmer />
-        )}
+        ) : null}
       </div>
     </main>
   );

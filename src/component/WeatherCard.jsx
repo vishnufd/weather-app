@@ -9,8 +9,8 @@ import { MdOutlineVisibility } from "react-icons/md";
 const WeatherCard = ({ weatherData }) => {
   const weatherIcon = `https://openweathermap.org/img/wn/${weatherData?.weather[0]?.icon}@2x.png`;
   return (
-    <section className="flex gap-x-6 flex-col sm:flex-row md:gap-x-10 bg-[#1f1f1f] rounded-xl p-10">
-      <div className="max-w-full sm:max-w-fit text-center">
+    <section className="flex gap-x-6 flex-row md:gap-x-10 bg-[#1f1f1f] rounded-xl p-10 card">
+      <div className="max-w-full sm:max-w-fit text-center main-card">
         <h2 className="font-semibold text-3xl">
           {weatherData?.name},&nbsp;{weatherData?.sys.country}
         </h2>
@@ -26,7 +26,7 @@ const WeatherCard = ({ weatherData }) => {
           </h3>
         </div>
       </div>
-      <div className="border-t-2 sm:border-t-0 sm:border-l-2 text-[17px] font-semibold border-gray-500/30 sm:my-0 my-10 py-2 sm:px-10">
+      <div className="sm:border-t-0 border-l-2 text-[17px] font-semibold border-gray-500/30 sm:my-0 my-2 py-2 sm:px-10 global">
         <ul>
           <li>
             <TiWeatherPartlySunny />

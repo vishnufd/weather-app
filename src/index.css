@@ -13,3 +13,18 @@ li {
         display: none;
     }
 }
+
+@media (max-width: 533px) {
+    .card {
+        flex-direction: column;
+    }
+    .global {
+        flex-direction: column;
+        border-top: 2px solid gray;
+        margin-block: 20px;
+        border-left: none;
+    }
+    .main-card {
+        margin-block: 10px;
+    }
+}
