@@ -2,9 +2,9 @@ import React from "react";
 
 const CardShimmer = () => {
   return (
-    <div className="max-w-[578px] h-[425px] bg-[#1f1f1f] rounded-xl p-10 flex items-center justify-center sm:flex-row flex-col">
+    <div className="p-10 flex h-[700px] sm:h-[425px] items-center justify-center sm:flex-row flex-col shimmer">
       <div
-        className="animate-spin inline-block size-32 border-8 border-current border-t-transparent text-gray-400 rounded-full"
+        className="animate-spin inline-block size-16 sm:size-32 border-4 sm:border-8 border-current border-t-transparent text-gray-400 rounded-full"
         role="status"
         aria-label="loading"
       ></div>
